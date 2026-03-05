@@ -20,7 +20,7 @@ pipeline {
             steps {
                 sh '''
                 docker build -t node-docker-app:${BUILD_NUMBER} .
-                docker tag node-docker-app:${BUILD_NUMBER} Srikar746/node-docker-app:${BUILD_NUMBER}
+                docker tag node-docker-app:${BUILD_NUMBER} srikarchandra/node-docker-app:${BUILD_NUMBER}
                 '''
             }
         }
@@ -33,7 +33,7 @@ pipeline {
         
         stage('Create container') {
             steps {
-                sh 'docker run -d -p 3000:8080 Srikar746/node-docker-app:${BUILD_NUMBER}'
+                sh 'docker run -d -p 3000:8080 srikarchandra/node-docker-app:${BUILD_NUMBER}'
             }
         }
 
